@@ -1,0 +1,247 @@
+$latime-buton: 100px;
+$inaltime-nav: 30px;
+$spatiere-main: 45px;
+$culoare-text-meniu: black;
+$culoare-meniu: skyblue;
+$culoare-meniu-activ: rgb(39, 21, 238);
+$culoare-text-hover: rgb(182, 230, 72); 
+
+body {
+  margin: 0px;
+}
+
+nav {
+  height: $inaltime-nav;
+  background-color: $culoare-meniu;
+  position: sticky;
+  top: 0;
+}
+
+/* Stiluri pentru ul cu clasa 'meniu' */
+ul.meniu {
+  display: flex;  /* Afisam orizontal */
+}
+
+/* Stiluri pentru fiecare 'li' direct */
+ul.meniu > li {
+  width: $latime-buton;
+  height: $inaltime-nav;
+  border: 1px solid black;
+  list-style-type: none;  /* Eliminam bullet points */
+  text-align: center;
+  background-color: $culoare-meniu;
+  transition: background-color 0.7s linear;  /* Efect de tranzitie pentru culoarea de fundal */
+}
+
+/* Stiluri pentru link-uri si div-uri în interiorul 'li' */
+ul.meniu > li a, 
+ul.meniu > li div {
+  color: $culoare-text-meniu;
+  text-decoration: none;  /* Eliminam sublinierea */
+  display: block;
+  height: 100%;
+  cursor: pointer;  /* Cursorul pointer */
+  line-height: $inaltime-nav;
+  transition: color 0.5s linear;  /* Efect de tranzitie pentru culoarea textului */
+}
+
+/* Ascundem textul Acasa */
+ul.meniu > li:first-child a {
+  opacity: 0;
+}
+
+/* Stiluri la hover pe 'li' */
+ul.meniu > li:hover {
+  background-color: $culoare-meniu-activ;  /* Schimbam culoarea de fundal la hover */
+}
+
+/* Schimbam culoarea textului la hover */
+ul.meniu > li:hover a {
+  color: $culoare-text-hover;
+}
+
+/* Afisam Acasa la hover */
+ul.meniu > li:first-child:hover a {
+  opacity: 1;
+}
+
+/* Setăm submeniul să fie ascuns */
+ul.meniu > li ul {
+  margin: 0;
+  padding: 0;
+  animation: animatie_submeniu 0.7s linear forwards;
+  display: none;
+  opacity: 0;
+}
+
+/* Stiluri pentru fiecare 'li' în submeniu */
+ul.meniu > li:hover ul {
+  display: block;
+  position: relative;
+}
+
+ul.meniu > li:hover ul li {
+  background-color: $culoare-meniu;
+}
+
+/* Schimbam culoarea textului în submeniu la hover */
+ul.meniu > li:hover ul li a {
+  color: $culoare-text-meniu;
+  
+}
+
+ul.meniu > li:hover ul li:hover {
+  background-color: $culoare-meniu-activ;
+}
+
+ul.meniu > li:hover ul li:hover a {
+  color: $culoare-text-hover;
+}
+
+@keyframes animatie_submeniu {
+  100% {                     // 100% din durata redata la dimensiune normala pe axa Y
+    opacity: 1; 
+    transform: scaleY(1);
+  }
+}
+
+//main {
+  //padding-left: $spatiere-main;
+ // padding-right: $spatiere-main;
+//}
+
+// stiluri 
+ 
+
+
+.hamburger {
+  display: none; // Tinem ascuns
+  width: 15px;
+  height: 24px;
+  position: relative;
+
+  div {
+      background-color: black; 
+      height: 4px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      transition: all 0.5s; // Tranzitie
+      
+      &:nth-child(1) {  // Prima bara
+          top: 0;
+          animation: animatieHamburger 1s forwards 0.3s; // Punem cu delay pentru fiecare bara
+      }
+      
+      &:nth-child(2) {  // A 2-a bara
+          top: 10px;
+          animation: animatieHamburger 1s forwards 0.6s;
+      }
+      
+      &:nth-child(3) {  // A 3-a bara
+          top: 20px;
+          animation: animatieHamburger 1s forwards 0.9s;
+      }
+  }
+}
+
+// Animatii bonus 
+@keyframes animatieHamburger {
+  0% {
+    background-color: black; // La 0% din animatie
+    transform: scaleX(1); // Lasam scala neschimbata
+    opacity: 1;  
+}
+50% {
+    background-color: red;  
+    transform: scaleX(0.5);  
+    opacity: 0.5;  
+}
+100% {
+    background-color: green;  
+    transform: scaleX(1);  
+    opacity: 1;  
+  }
+}
+@for $i from 1 through 3 {
+  .hamburger div:nth-child(#{$i}) { // Pentru fiecare bara delay diferit (1 - 0.3s, 2 - 0.6s)
+      animation-delay: $i * 300ms;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  ul.meniu > li {
+    font-size: 0.8em;
+  }
+
+  ul.meniu > li:first-child a.text {
+    display: none;  // Ascundem textul
+  }
+
+  ul.meniu > li:first-child a.icon {
+    display: block;  // Afisăm iconița
+
+    &:before {   //Inseram continutul inainte
+      content: "\f015";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  
+  ul.meniu {
+      display: none; // Inițial ascundem meniul pe ecranele mici
+      flex-direction: column; // Așează pe verticala
+      width: 100%;  
+      position: absolute; // Punem peste conținutul  
+      top: $inaltime-nav;
+      left: 0;
+      z-index: 10; // Prioritate
+      mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+      mask-size: 100% 0; // Începem cu meniul ascuns
+      transition: mask-size 0.5s linear;
+  }
+  
+  ul.meniu > li:first-child a.text {
+    display: none;  
+  }
+
+  ul.meniu > li:first-child a.icon {
+    display: block;   
+
+    &:before {    
+      content: "\f015";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+  }  
+  
+  #ch-menu:checked + .hamburger + ul.meniu {
+    display: flex;
+    mask-size: 100% 100%; // Afisam meniul cu efectul gradient
+  }
+  
+  ul.meniu > li {
+      width: 100%; 
+  }
+
+  .hamburger {
+      display: flex;
+  }
+
+  #ch-menu:checked + .hamburger + ul.meniu {
+      display: flex;
+  }
+}
+
+
+
+
+
+
+
+
+

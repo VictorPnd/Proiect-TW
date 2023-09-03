@@ -1,0 +1,217 @@
+@charset "UTF-8";
+body {
+  margin: 0px;
+}
+
+nav {
+  height: 30px;
+  background-color: skyblue;
+  position: sticky;
+  top: 0;
+}
+
+/* Stiluri pentru ul cu clasa 'meniu' */
+ul.meniu {
+  display: flex; /* Afisam orizontal */
+}
+
+/* Stiluri pentru fiecare 'li' direct */
+ul.meniu > li {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  list-style-type: none; /* Eliminam bullet points */
+  text-align: center;
+  background-color: skyblue;
+  transition: background-color 0.7s linear; /* Efect de tranzitie pentru culoarea de fundal */
+}
+
+/* Stiluri pentru link-uri si div-uri în interiorul 'li' */
+ul.meniu > li a,
+ul.meniu > li div {
+  color: black;
+  text-decoration: none; /* Eliminam sublinierea */
+  display: block;
+  height: 100%;
+  cursor: pointer; /* Cursorul pointer */
+  line-height: 30px;
+  transition: color 0.5s linear; /* Efect de tranzitie pentru culoarea textului */
+}
+
+/* Ascundem textul Acasa */
+ul.meniu > li:first-child a {
+  opacity: 0;
+}
+
+/* Stiluri la hover pe 'li' */
+ul.meniu > li:hover {
+  background-color: rgb(39, 21, 238); /* Schimbam culoarea de fundal la hover */
+}
+
+/* Schimbam culoarea textului la hover */
+ul.meniu > li:hover a {
+  color: rgb(182, 230, 72);
+}
+
+/* Afisam Acasa la hover */
+ul.meniu > li:first-child:hover a {
+  opacity: 1;
+}
+
+/* Setăm submeniul să fie ascuns */
+ul.meniu > li ul {
+  margin: 0;
+  padding: 0;
+  animation: animatie_submeniu 0.7s linear forwards;
+  display: none;
+  opacity: 0;
+}
+
+/* Stiluri pentru fiecare 'li' în submeniu */
+ul.meniu > li:hover ul {
+  display: block;
+  position: relative;
+}
+
+ul.meniu > li:hover ul li {
+  background-color: skyblue;
+}
+
+/* Schimbam culoarea textului în submeniu la hover */
+ul.meniu > li:hover ul li a {
+  color: black;
+}
+
+ul.meniu > li:hover ul li:hover {
+  background-color: rgb(39, 21, 238);
+}
+
+ul.meniu > li:hover ul li:hover a {
+  color: rgb(182, 230, 72);
+}
+
+@keyframes animatie_submeniu {
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+.hamburger {
+  display: none;
+  width: 15px;
+  height: 24px;
+  position: relative;
+}
+.hamburger div {
+  background-color: black;
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  transition: all 0.5s;
+}
+.hamburger div:nth-child(1) {
+  top: 0;
+  animation: animatieHamburger 1s forwards 0.3s;
+}
+.hamburger div:nth-child(2) {
+  top: 10px;
+  animation: animatieHamburger 1s forwards 0.6s;
+}
+.hamburger div:nth-child(3) {
+  top: 20px;
+  animation: animatieHamburger 1s forwards 0.9s;
+}
+
+@keyframes animatieHamburger {
+  0% {
+    background-color: black;
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    background-color: red;
+    transform: scaleX(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    background-color: green;
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+.hamburger div:nth-child(1) {
+  animation-delay: 300ms;
+}
+
+.hamburger div:nth-child(2) {
+  animation-delay: 600ms;
+}
+
+.hamburger div:nth-child(3) {
+  animation-delay: 900ms;
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  ul.meniu > li {
+    font-size: 0.8em;
+  }
+  ul.meniu > li:first-child a.text {
+    display: none;
+  }
+  ul.meniu > li:first-child a.icon {
+    display: block;
+  }
+  ul.meniu > li:first-child a.icon:before {
+    content: "\f015";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+}
+@media screen and (max-width: 768px) {
+  ul.meniu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+    mask-size: 100% 0;
+    transition: mask-size 0.5s linear;
+  }
+  ul.meniu > li:first-child a.text {
+    display: none;
+  }
+  ul.meniu > li:first-child a.icon {
+    display: block;
+  }
+  ul.meniu > li:first-child a.icon:before {
+    content: "\f015";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  #ch-menu:checked + .hamburger + ul.meniu {
+    display: flex;
+    mask-size: 100% 100%;
+  }
+  ul.meniu > li {
+    width: 100%;
+  }
+  .hamburger {
+    display: flex;
+  }
+  #ch-menu:checked + .hamburger + ul.meniu {
+    display: flex;
+  }
+}
+
+
+
+#stil-video video::cue {
+  background-image: linear-gradient(to bottom, darkgreen, darkbrown);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}

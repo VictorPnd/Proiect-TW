@@ -1,0 +1,23 @@
+<section id="galerie-statica">
+    <h2>Galerie</h2>
+    <div id="grid-galerie">
+        <% 
+        let hasDisplayed = false;
+        for (let imag of locals.imagini) { 
+            if (!hasDisplayed) {
+        %>
+            <figure>
+                <picture>
+                    <!-- Presupun că vrei să afișezi aceeași imagine pentru orice dimensiune a ecranului în absența unei versiuni medii -->
+                    <source srcset="<%- locals.cale_galerie + '/' + imag.fisier_imagine %>" media="(max-width:1000px)" />
+                    <img src="<%- locals.cale_galerie + '/' + imag.fisier_imagine %>" alt="<%- imag.continut_alternativ %>">
+                </picture>
+                <figcaption><%- imag.descriere_poza %></figcaption>
+            </figure>
+        <% 
+            hasDisplayed = true;
+            }
+        }  
+        %>
+    </div>
+</section>

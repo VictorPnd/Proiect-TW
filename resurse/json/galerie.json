@@ -1,0 +1,13 @@
+{
+    "cale_galerie": "resurse/imagini/galerie",
+    "imagini": [
+        {
+            "fisier_imagine": "minge.png",
+            "nume_poza": "Minge",
+            "continut_alternativ": "Imagine cu o minge",
+            "descriere_poza": "O minge simplă.",
+            "intervale_zile": [["luni", "miercuri"], ["sambata", "sambata"]]
+        }
+
+    ]
+}

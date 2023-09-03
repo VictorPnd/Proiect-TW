@@ -1,0 +1,56 @@
+{
+    "cale_baza": "/resurse/imagini/erori",
+    "eroare_default":{
+        "titlu":"Eroare!",
+        "text": "A survenit eroare.",
+        "imagine":"interzis.png"
+    },
+    "info_erori": [
+        {
+            "identificator":404,
+            "status":true,
+            "titlu":"404 - Nu se gaseste!",
+            "text": "Pagina cautata nu exista!",
+            "imagine":"nothinghere.png"
+        },
+        {
+            "identificator":403,
+            "status":true,
+            "titlu":"403 - Interzis!",
+            "text": "Acces neautorizat!",
+            "imagine":"interzis.png"
+        },
+
+        {
+            "identificator":400,
+            "status":true,
+            "titlu":"400 - Cerere gresita",
+            "text": "Ati gresit cererea!",
+            "imagine":"interzis.png"
+        },       
+        
+        {
+            "identificator":1,
+            "status":false,
+            "titlu":"In lucru",
+            "text": "Ne cerem scuze pentru inconveniente!",
+            "imagine":"interzis.png"
+        },
+        
+        {
+            "identificator":2,
+            "status":false,
+            "titlu":"Eroare baza date",
+            "text": "Reveniti mai tarziu!",
+            "imagine":"nothinghere.png"
+        },
+        
+        {
+            "identificator":3,
+            "status":false,
+            "titlu":"Date gresite",
+            "text": "Verificati datele",
+            "imagine":"nothinghere.png"
+        }
+    ]
+}

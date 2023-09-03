@@ -1,0 +1,60 @@
+/* Partea de stilizare pentru tabelul produselor */
+#tabel-produse {
+    width: 100%;
+    position: relative;
+    justify-content: center;
+}
+
+#tabel-produse table {
+    border-collapse: collapse;   /* Eliminam spatiu dintre celule */
+    width: 100%;  /* Ocupam intregul spatiu*/
+    max-width: 900px;
+}
+
+#tabel-produse th,   /* Stilizare header si celule */
+#tabel-produse td {
+    border: 1px solid #888;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+#tabel-produse td:nth-child(even),  
+#tabel-produse th:nth-child(even) {
+    border-right-color: yellow; /* c1 */
+}
+
+#tabel-produse td:nth-child(odd),
+#tabel-produse th:nth-child(odd) {
+    border-right-color: green; /* c2 */
+}
+
+#tabel-produse thead tr, /* Thead bordura jos ingrosata, la fel tbody ultima bordura */
+#tabel-produse tbody tr:last-child {
+    border-bottom: 3px solid #000; /*  */
+}
+
+#tabel-produse tbody tr {
+    transition: box-shadow 0.5s ease;
+}
+
+#tabel-produse tbody tr:hover {
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3); /* culoarea si dimensiune umbra  */
+}
+
+.tabel-wrapper {
+    width: 100%;
+    overflow-x: auto; /*  scroll orizontal   */
+}
+
+.descriere-tabel {
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+}
+
+
+@media screen and (max-width: 600px) {
+    #tabel-produse table {
+        width: 100%;  
+    }
+}

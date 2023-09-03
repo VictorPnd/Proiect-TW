@@ -1,0 +1,278 @@
+:root {  /* pseudo-selector  selecteaza radacina documentului HTML */
+    --culoare-principala: #ADD8E6; 
+    --culoare-fundal: #E8FFFF; 
+    --culoare-text: #000000; 
+    --culoare-evidentiere: #00008B; 
+    --culoare-bordura: #b3e0f4; 
+    --spatiere-mare: 2.5vw;    /* Etapa 3 a */
+    --spatiere-medie: 2vw;
+    --spatiere-mica: 1vw;
+    --grid-gap-mare: 12px;    /* Etapa 3 b */
+    --grid-gap-mediu: 10px;
+    --grid-gap-mic: 8px;
+}
+
+body, header, footer {     
+    background-color: var(--culoare-fundal);
+    color: var(--culoare-text);
+    font-family: 'Poppins', 'REM', 'Roboto', sans-serif;
+
+}
+
+a {    
+    color: var(--culoare-evidentiere);
+}
+
+
+/* GRID */
+#grid-pagina {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "produse produse produse"
+        "promotii promotii imbracaminte-sport"
+        "accesorii-sport echipamente-fitness imbracaminte-sport"
+        "despre contact faq"
+        "footer footer footer"
+        "galerie-statica galerie-statica galerie-statica";
+    gap: 15px;
+    padding-left: var(--spatiere-mare);     /* Etapa 3 a */
+    padding-right: var(--spatiere-mare);
+    grid-gap: var(--grid-gap-mare);     /* Etapa 3 b */
+}
+
+#promotii {
+    grid-area: promotii;
+}
+
+#produse {
+    grid-area: produse;
+}
+
+#imbracaminte-sport {
+    grid-area: imbracaminte-sport;
+}
+
+#incaltaminte-sport {      
+    grid-area: incaltaminte-sport;
+}
+
+#accesorii-sport {
+    grid-area: accesorii-sport;
+}
+
+#echipamente-fitness {
+    grid-area: echipamente-fitness;
+}
+
+#despre {
+    grid-area: despre;
+}
+
+#faq {
+    grid-area: faq;
+}
+
+#contact {
+    grid-area: contact;
+}
+
+#galerie-statica {
+    grid-area: galerie-statica;
+}
+
+#grid-pagina > * {
+    transition: all 0.3s ease-in-out;
+    background-color: #f3f3f3;
+    outline: 1px solid #ccc;
+    margin: 0; /* Eliminăm spatierea */
+}
+
+#grid-pagina > *:hover {
+    box-shadow: 0px 0px 10px 5px rgb(0, 191, 255, 0.6);
+}
+
+#grid-pagina > section {
+    padding: 20px;
+}
+
+/* GRID */
+header {
+    grid-area: header;
+    background-color: var(--culoare-principala);   /* Etapa 3 c */
+    border: 1px solid var(--culoare-bordura);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    grid-area: nav;
+    background-color: var(--culoare-principala);    /* Etapa 3 c */
+    border: 1px solid var(--culoare-bordura);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+footer {
+    grid-area: footer;
+    background-color: var(--culoare-principala);   /* Etapa 3 c */
+    border: 1px solid var(--culoare-bordura);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+/* Ecran mic */
+@media screen and (max-width: 600px) {
+    #grid-pagina {
+        grid-template-areas:
+            "header"
+            "nav"
+            "produse"
+            "promotii"
+            "imbracaminte-sport"
+            "accesorii-sport"
+            "echipamente-fitness"
+            "despre"
+            "contact"
+            "faq"
+            "footer";
+            padding-left: var(--spatiere-mica);     /* Etapa 3 a */
+            padding-right: var(--spatiere-mica);  
+            grid-gap: var(--grid-gap-mic);    /* Etapa 3 b */
+    }
+    img, video {
+        width: 100%;
+        min-width: 50px;  /* Etapa 3 e */
+        max-width: 300px;  
+    }
+}
+
+/* Ecran mediu */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    #grid-pagina {
+        font-size: 18px; /* Schimbam dimensiunea textului pentru ecranul mediu */
+        grid-gap: var(--grid-gap-mediu);    /* Etapa 3 b */
+        padding-left: var(--spatiere-medie);   /* Etapa 3 a */
+        padding-right: var(--spatiere-medie);
+    }
+    img, video {
+        width: 100%;
+        min-width: 100px;  /* Etapa 3 e */
+        max-width: 500px;   
+    }
+}
+
+footer{
+    background-color: var(--culoare-bordura);
+    color:black;
+}
+
+header > div, footer > div, nav > div {    /* Etapa 3 d */
+    padding-left: var(--spatiere-mare);
+    padding-right: var(--spatiere-mare);
+}
+
+img, video {
+    width: 100%;
+    min-width: 100px;  /* Etapa 3 e  */
+    max-width: 500px;   
+}
+
+/* ANIMATII */
+
+/* Dezactivam animatiile pe ecran mic si mediu */
+@media screen and (max-width: 1024px) {
+    #grid-pagina > * {
+        transition: none;
+    }
+}
+
+/* Stilizare container-iframe */
+ .container-iframe {
+    display: flex;
+    flex-direction: column; /* Punem copiii pe direcție verticala */
+    align-items: flex-end;       /* Alinierea copiilor orizontal la dreapta */
+    position: relative;
+ }
+ 
+  .iframe-wrapper iframe {
+      border: 5px solid green; 
+  }
+
+  .taburi-iframe {
+    display: flex;
+    flex-direction: row;  /* Orizontal */
+    justify-content: flex-end; /* Alinierea dreapta containerului */
+    margin-top: -5px; 
+}
+
+.taburi-iframe a {
+    text-decoration: none;
+    flex: 0 0 100px;
+    border: 1px solid green;
+    border-top: 7px solid green; /* Bordura mai groasa sus */
+    border-bottom-right-radius: 10px; /* Rotunjim */
+    border-bottom-left-radius: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    background-color: lightgreen; 
+    transition: all 0.5s linear;
+    text-align: center;
+}
+
+  .taburi-iframe a:hover {
+    color:green;
+    background-image: none;
+    background-color: white;
+  }
+  
+#link-top {
+  position: fixed; /* Ramane fixa indiferent daca derulam sau nu pagina  */
+  bottom: 10px;
+  right: 10px;
+  display: block;    /*  Ocupam tot spatiul containerului */
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  background: linear-gradient(0deg, rgb(131, 194, 236), #ADD8E6, rgb(131, 194, 236));
+  border: 3px dashed #000;
+  transition: transform 0.5s;
+  opacity: 1;
+}
+
+#link-top:hover {
+  transform: rotate(360deg);
+  opacity: 1;
+}
+
+#link-top .arrow {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.5s;
+}
+
+#link-top:hover .arrow {
+  transform: rotate(-360deg);
+}
+
+
+
+::cue {
+    background-image: linear-gradient(to bottom, darkgreen, darkbrown);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+
+
+
+

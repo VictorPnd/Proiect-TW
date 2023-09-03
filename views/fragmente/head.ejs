@@ -1,0 +1,78 @@
+<meta name="author" content="VP">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#87CEEB">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/resurse/ico/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/resurse/ico/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/resurse/ico/favicon-16x16.png">
+<link rel="manifest" href="/resurse/ico/site.webmanifest">
+<link rel="mask-icon" href="/resurse/ico/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/resurse/ico/favicon.ico">
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<link rel="stylesheet" type="text/css" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=REM:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/resurse/css/General.css">
+<link rel="stylesheet" type="text/css" href="/resurse/css/Tabel.css">
+<link rel="stylesheet" type="text/css" href="/resurse/css/Styles_reset.css">
+<link rel="stylesheet" type="text/css" href="/resurse/css/Meniu.css">
+<link rel="stylesheet" type="text/css" href="/resurse/css/Print.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+<style>
+/* Definiția variabilei pentru culoarea link-urilor vizitate */
+:root {
+    --visited-link-color: #8a2be2; /* Alegeți o culoare care se potrivește cu schema dvs. cromatică */
+}
+
+/* Stilizarea linkurilor vizitate */
+a:visited {
+    color: var(--visited-link-color);
+}
+
+/* Pseudoelement pentru linkurile externe */
+a[href^="http:"]::before, a[href^="https:"]::before {
+    content: "⮳";
+    font-size: 150%; /* 50% mai mare decât dimensiunea fontului linkului */
+    margin-right: 0.5em; /* Spațiu între simbol și textul linkului */
+}
+
+/* Schimbarea culorii simbolului la aducerea cursorului pe link */
+a[href^="http:"]:hover::before, a[href^="https:"]:hover::before {
+    color: #ff4500; /* Schimbați această culoare la dorință */
+}
+
+/* Efectul cu pata de culoare pentru linkurile din conținut */
+main a {
+    background-image: radial-gradient(circle, yellow 0%, yellow 40%, transparent 80%, transparent 100%) ;
+    background-size: 0 0;
+    background-position: center;
+    transition: background-size 0.5s ease-in-out; /* Durata tranziției */
+}
+
+main a:hover {
+    background-size: 100% 100%;
+}
+
+main a:active {
+    border: 2px solid black;
+    /* Pentru a evita mișcarea bruscă a conținutului în jurul linkului atunci când apare border-ul, adăugăm un padding corespunzător */
+    padding: 2px;
+    /* Și scădem margin-ul cu aceeași valoare pentru a compensa */
+    margin: -2px;
+    /* Setăm o tranziție pentru a obține un efect plăcut atunci când border-ul apare și dispare */
+    transition: border 0.3s ease-in-out;
+}
+
+</style>

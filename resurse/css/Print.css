@@ -1,0 +1,113 @@
+/* Ascundem bannerul pe ecran - HTML linia 46 */
+.print-banner {
+    display: none;
+}
+
+@media print {
+    .print-banner {
+        display: block;
+        width: 80%;
+        border: 1px dotted black;
+        margin: 20px auto 40px;
+        text-align: center;
+    }
+
+    footer p {
+        display: none ; /* Ascundem banner-ul original din footer */
+    }
+}
+
+@media print {
+    /* Ascunde elementele media */
+    img, video, iframe, audio {
+        display: none ;
+    }
+
+    /* Ascunde descrierile imaginilor   */
+    figcaption {
+        display: none ;
+    }
+
+    /* Ascunde linkul către începutul paginii */
+    a[href*="#top"] {
+        display: none ;
+    }
+
+    /* Ascunde butoanele/linkurile pentru videoclipuri */
+    .taburi-iframe, .taburi-iframe a {
+        display: none ;
+    }
+
+    /* Grid-ul paginii să fie afișat ca block */
+    .grid {
+        display: block ;
+    }
+}
+
+@media print {
+    a {        /*  Ascundem linkurile   */
+        color: black ;
+        text-decoration: none ;
+    }
+}
+
+/* Pentru print */
+@media print {
+    /* Stilizare pentru titlu */
+    h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; /* 100% din inaltimea view portului */
+        text-decoration: underline;
+        font-size: 40px;       
+    }
+
+    .pagebreak {
+        page-break-before: always; /* Pagebreak inainte de element */
+    }
+
+    /* Ascundem meniul */
+    nav {
+        display: none;
+    }
+      /* Ascundem sageata catre inceputul paginii  */
+    #link-top {
+        display: none ;
+    }
+    
+    
+    /* Resetare stiluri pentru footer */
+    footer, footer * {   /*  Selectam atat footer cat si copii/descendentii  */
+        display: block;
+        float: none ;
+        position: static ;
+    }
+
+
+@media print {
+    @page :left {
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+
+    @page :right {
+        margin-right: 2.5cm;
+        margin-left: 0.5cm;
+    }
+}
+
+@media print {
+    body::after {
+        content: "VP";  
+        position: fixed; /* Il punem pe fiecare pagina */
+        top: 50%; 
+        left: 50%;
+        width: 100px;
+        height: 2cm;
+        border: 2px double black;
+        opacity: 0.65;
+        text-align: center;
+        line-height: 2cm; /* Centrare verticală a textului */
+    }
+}

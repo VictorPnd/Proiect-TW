@@ -1,0 +1,28 @@
+{
+  "name": "gosport",
+  "version": "1.0.0",
+  "description": "Magazinul Sportiv GoSport a fost înființat în 2023 cu misiunea de a oferi echipament sportiv de calitate pentru toți cei pasionați de sport.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "magazin",
+    "sportiv",
+    "imbracaminte",
+    "sport",
+    "incaltaminte",
+    "sport",
+    "promotii",
+    "echipamente",
+    "fitness"
+  ],
+  "author": "VP",
+  "license": "ISC",
+  "dependencies": {
+    "express-ejs-layouts": "^2.5.1",
+    "pg": "^8.11.3",
+    "sass": "^1.66.1",
+    "sharp": "^0.32.5"
+  }
+}
